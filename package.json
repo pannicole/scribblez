@@ -1,7 +1,7 @@
 {
-  "name": "fs-app-template",
+  "name": "scribblez",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "generative art - cartoon faces!",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -27,6 +27,8 @@
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
+    "paper": "^0.12.15",
+    "path": "^0.12.7",
     "pg": "^8.5.1",
     "sequelize": "^6.3.5"
   },
