@@ -2,44 +2,27 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import Grid from "@material-ui/core/Grid";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>Scribblez</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
+const useStyles = makeStyles((theme) => ({
+  title: {
+    fontSize: "2rem",
+    textAlign: "center",
+  },
+  titleBox: {
+    width: "400px",
+  }
+}));
+
+const Navbar = () => {
+  const styles = useStyles();
+  return (
+    <Grid className = {styles.titleBox}>
+    <h1 className = {styles.title}>Scribblez</h1>
     <hr />
-  </div>
-)
-
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.auth.id
-  }
+  </Grid>
+  )
 }
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout())
-    }
-  }
-}
-
-export default connect(mapState, mapDispatch)(Navbar)
+export default Navbar
